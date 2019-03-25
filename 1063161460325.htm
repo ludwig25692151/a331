@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>form</title>
+    <link rel="Shortcut Icon" type="image/x-icon" href="https://cdn2.iconfinder.com/data/icons/font-awesome/1792/circle-o-256.png" />
+    <script language="javascript" type="text/javascript">
+        function Button1_onclick() {
+            var a, b, c;
+            a = document.getElementById("name1").value;
+            if (a.length == 0) {
+                alert("input is empty 'Name'");
+            }
+            b = document.getElementById("Phone1").value;
+            if (b.length == 0) {
+                alert("input is empty 'Cell_Phone'");
+            }
+            if (isNaN(b) == true) {
+                alert("Not a number'Cell_Phone'");
+            }
+        }
+
+        function Button2_onclick() {
+            obj = JSON.parse('{"name":"Chalmers", "telecom":12345678, "gender":"M", "birthDate":"1974-12-25"}');
+            document.getElementById("name1").value = obj.name;
+            document.getElementById("Phone1").value = obj.telecom;
+            if (obj.gender == "F") {
+                document.getElementById('f').checked = true;
+            }
+            if (obj.gender == "M") {
+                document.getElementById('m').checked = true;
+            }
+            document.getElementById("BirthDate").value = obj.birthDate;
+        }
+
+        function Button3_onclick() {
+            var a, b, c, d, temp;
+            a = document.getElementById('name1').value;
+            b = document.getElementById('Phone1').value;
+            if (document.getElementById('m').checked) {
+                c = document.getElementById('m').value;
+            }
+            if (document.getElementById('f').checked) {
+                c = document.getElementById('f').value;
+            }
+            d = document.getElementById('BirthDate').value;
+            alert("姓名:" + a + " 電話:" + b + " 性別:" + c + " 生日:" + d);
+        }
+    </script>
+</head>
+
+<body>
+    <form id="orderForm1" action="http://203.64.84.113/x/RQ_RS.aspx" method="post" name="form1">
+        <div style="text-align:center;">
+            <h1>SYCAMORE</h1>
+            <h3>INTEGRATED HEALTH</h3>
+        </div>
+        <div>
+            <h3>New Patient Intake Form</h3>
+            <div>
+                <h4>Patient Data</h4>
+                <p>
+                    <font color="blue"> Name <input type="text" name="Name" id="name1"></font>
+                    <font> Date <input type="date" name="Date"></font>
+                    <font> Email <input type="email" name="Email">
+                        <font size="1"> Email will not be shared and will only beused for occasional office announcements and appointments and appointment reminders</font>
+                    </font>
+                </p>
+                <p>
+                    <font> Address <input type="text" name="Address"></font>
+                    <font> City <input type="text" name="City"></font>
+                    <font> State <input type="text" name="State"></font>
+                    <font> Zip <input type="text" name="Zip"></font>
+                </p>
+                <p>
+                    <font color="blue"> Cell Phone <input type="number" name="Cell_Phone" id="Phone1"></font>
+                    <font> Home Phone <input type="number" name="Home_Phone"></font>
+                    <font> Work Phone <input type="number" name="Work_Phone"></font>
+                </p>
+                <p>
+                    <font color="blue"> Sex
+                        <input type="radio" name="Sex" id="m" value="M" selected>
+                        <font color="black">M</font>
+                        <input type="radio" name="Sex" id="f" value="F">
+                        <font color="black">F</font>
+                    </font>
+                    <font color="blue"> Birth Date <input type="date" name="Birth_Date" id="BirthDate"></font>
+                    <font> Age <input type="number" name="Age" min="0" max="120"></font>
+                    <font> Social Secunity Number <input type="text" name="Social Secunity Number"></font>
+                </p>
+                <p>
+                    <input type="radio" name="Marital status" value="Single">Single
+                    <input type="radio" name="Marital status" value="Married">Married
+                    <input type="radio" name="Marital status" value="Widowed">Widowed
+                    <input type="radio" name="Marital status" value="Separated">Separated
+                    <input type="radio" name="Marital status" value="Diovorced">Divorced &nbsp;&nbsp;&nbsp;
+                    <font> Number of Children <input type="number" name="Number of Children"></font>
+                </p>
+                <p>
+                    <font> Occupation <input type="text" name="Occupation"></font>
+                    <font> Employer <input type="text" name="Emploter"></font>
+                </p>
+                <p>
+                    <font> Spouse's Name <input type="text" name="Spouse's"></font>
+                    <font> Spouse's Occupation <input type="text" name="Spouse's_Occupation"></font>
+                    <font> Spouse's Employer <input type="text" name="Spouse's_Emploter"></font>
+                </p>
+                <p>
+                    <font> Emergency <input type="text" name="Emergency"></font>
+                    <font> Phone <input type="number" name="Phone"></font>
+                </p>
+                <p>
+                    <font> How did you hear about this clinic? <input type="text" name="How_did you_hear_about_this_clinic"></font>
+                    <font> Name of person who referred you <input type="text" name="Name _of person_who_referred_you"></font>
+                    <hr />
+            </div>
+            <div>
+                <h4>Current Complaints</h4>
+                <p>
+                    <font> Nature of the Injury
+                        <input type=checkbox name="Automobile">Automobile
+                        <input type=checkbox name="Work">Work
+                        <input type=checkbox name="Other">Other
+                    </font>
+                </p>
+                <p>
+                    <font> Please Describe </font><textarea name="Please Describe" rows="1" cols="100"></textarea>
+                </p>
+                <p>
+                    <font> What caused the problem? </font><textarea name="What caused the problem" rows="1" cols="100"></textarea>
+                </p>
+                <p>
+                    <font> date of injury <input type="date" name="date of injury"></font>
+                    <font> Date symptoms appeared <input type="date" name="Date symptoms appeared"></font>
+                </p>
+                <p>
+                    <font> Did your pain come on :
+                        <input type="radio" name="Did your pain come on" value="Suddenly">Suddenly
+                        <input type="radio" name="Did your pain come on" value="Gradually">Gradually
+                    </font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <font> Is the pain :
+                        <input type="radio" name="Is the pain" value="Mild">Mild
+                        <input type="radio" name="Is the pain" value="Moderate">Moderate
+                        <input type="radio" name="Is the pain" value="Severe">Severe
+                    </font>
+                </p>
+                <p>
+                    <font> Do your experience pain every day?
+                        <select id=“cho1” name="Do your experience pain every day">
+                            <option value="Yes">Yes
+                            <option value="No" selected>No
+                        </select>
+                    </font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <font> Do changes in weather affect your symptoms?
+                        <select id=“cho2” name="Do changes in weather affect your symptoms">
+                            <option value="Yes">Yes
+                            <option value="No" selected>No
+                        </select>
+                    </font><br>
+                    <font> Do you symptoms interfere with daily life?
+                        <select id=“cho3” name="Do you symptoms interfere with daily life">
+                            <option value="Yes">Yes
+                            <option value="No" selected>No
+                        </select>
+                    </font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <font> Do you wear orthotics?
+                        <select id=“cho4” name="Do you wear orthotics">
+                            <option value="Yes">Yes
+                            <option value="No" selected>No
+                        </select>
+                    </font><br>
+                    <font> Does the pain wake you up at night?
+                        <select id=“cho5” name="Does the pain wake you up at night">
+                            <option value="Yes">Yes
+                            <option value="No" selected>No
+                        </select>
+                    </font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <font> Do you take vitamins or supplements?
+                        <select id=“cho6” name="Do you take vitamins or supplements">
+                            <option value="Yes">Yes
+                            <option value="No" selected>No
+                        </select>
+                    </font><br>
+                    <font> Are your symptoms worse at certain times of the day?
+                        <select id=“cho7” name="Are your symptoms worse at certain times of the day">
+                            <option value="Yes">Yes
+                            <option value="No" selected>No
+                        </select>
+                    </font>
+                </p>
+                <p>
+                    <font> Which activities aggravate your symptoms </font><textarea name="Which activities aggravate your symptoms" rows="1" cols="50"></textarea>
+                </p>
+                <p>
+                    <font> Have you ever had this same condition before?
+                        <select id=“cho8” name="Have you ever had this same condition before">
+                            <option value="Yes">Yes
+                            <option value="No" selected>No
+                        </select>
+                    </font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <font> If yes, when? <input type="text" name="If yes, when"></font>
+                </p>
+                <p>
+                    <font> List other practitioners seen for this condition </font><textarea name="List other practitioners seen for this condition" rows="1" cols="50"></textarea>
+                </p>
+                <hr />
+            </div>
+            <div>
+                <h4>Payment Information</h4>
+                <p>
+                    <font> Name of party reponsible for payment <input type="text" name="Name of party reponsible for payment"></font>
+                    <font> Phone <input type="number" name="Phone"></font>
+                </p>
+                <p>
+                    <font> Do you have health insurance? </font>
+                    <select id=“cho4” name="Do you have health insurance">
+                        <option value="Yes">Yes
+                        <option value="No" selected>No
+                    </select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <font> Name of insurance company <input type="text" name="Name of insurance company"></font>
+                </p>
+                <h5> *If auto accident, please provide: </h5>
+                <p>
+                    <font> Insurance company name <input type="text" name="Insurance company name"></font>
+                    <font> Contact Person <input type="text" name="Contact Person"></font>
+                </p>
+                <p>
+                    <font> Phone <input type="number" name="Phone"></font>
+                    <font> Claim Number <input type="text" name="Claim Number"></font>
+                </p>
+                <p>
+                    <font><b> Patient Signature </b><input type="text" name="Patient Signature"></font>
+                    <font> Doctor Signature <input type="text" name="Doctor Signature"></font>
+                </p>
+            </div>
+        </div>
+
+        <p><input id="Button1" type="button" value="click" onclick="Button1_onclick()" /></p>
+        <p><input id="Button2" type="button" value="loadPatient button" onclick="Button2_onclick()" /></p>
+        <p><input id="Button3" type="button" value="getPatient button" onclick="Button3_onclick()" /></p>
+        <button type="submit" value="sssss" style="height: 29px; width: 103px">送出</button>
+    </form>
+
+</body>
+
+</html>
